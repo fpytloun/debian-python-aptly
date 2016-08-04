@@ -1,0 +1,37 @@
+Source: python-aptly
+Maintainer: Filip Pytloun <filip@pytloun.cz>
+Section: python
+Priority: optional
+Build-Depends: debhelper (>= 9), dh-python, python-all, python-setuptools
+Standards-Version: 3.9.8
+X-Python-Version: >= 2.6
+X-Python3-Version: >= 3.0
+Homepage: https://github.com/tcpcloud/python-aptly
+
+Package: python-aptly
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}
+Recommends: aptly-publisher
+Description: Aptly API client
+ .
+ Module which provides access to Aptly instance from Python programming
+ language
+
+Package: python3-aptly
+Architecture: all
+Depends: ${misc:Depends}, ${python3:Depends}
+Recommends: aptly-publisher
+Description: Aptly API client (Python3 version
+ .
+ Module which provides access to Aptly instance from Python programming
+ language
+
+Package: aptly-publisher
+Architecture: all
+Depends: python3-aptly (= ${binary:Version}),
+         ${misc:Depends},
+         ${python:Depends}
+Description: Tool for management of Aptly publishes
+ .
+ This tool allows one to create aptly multi-component
+ publishes from JSON definition of repositories and mirrors
