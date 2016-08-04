@@ -4,6 +4,12 @@ export PYBUILD_NAME=aptly
 %:
 	dh $@ --with python2,python3 --buildsystem=pybuild
 
+override_dh_install:
+	# aptly-publisher is using python3 by default
+	rm -rf debian/python-aptly/usr/bin
+	mkdir -p debian/aptly-publisher/usr
+	mv debian/python3-aptly/usr/bin debian/aptly-publisher/usr/
+
 ## http://wiki.debian.org/onlyjob/get-orig-source
 PKD  = $(abspath $(dir $(MAKEFILE_LIST)))
 PKG  = $(word 2,$(shell dpkg-parsechangelog -l$(PKD)/changelog | grep ^Source))

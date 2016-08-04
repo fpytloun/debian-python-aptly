@@ -16,19 +16,24 @@ Homepage: https://github.com/tcpcloud/python-aptly
 Package: python-aptly
 Architecture: all
 Depends: ${misc:Depends}, ${python:Depends}
+Recommends: aptly-publisher
 Description: Aptly API client
  Module which provides access to Aptly instance from Python programming
  language
- .
- aptly-publisher CLI tool allows one to create aptly multi-component publishes
- from JSON definition of repositories and mirrors
 
 Package: python3-aptly
 Architecture: all
 Depends: ${misc:Depends}, ${python3:Depends}
 Description: Aptly API client and tooling (Python3 version)
  Module which provides access to Aptly instance from Python programming
- language and CLI tooling.
+ language
+
+Package: aptly-publisher
+Architecture: all
+Depends: python3-aptly (= ${binary:Version}),
+         ${misc:Depends},
+         ${python:Depends}
+Description: Tool for management of Aptly publishes
  .
- aptly-publisher CLI tool allows one to create aptly multi-component publishes
- from JSON definition of repositories and mirrors
+ This tool allows one to create aptly multi-component
+ publishes from JSON definition of repositories and mirrors
