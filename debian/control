@@ -1,5 +1,6 @@
 Source: python-aptly
-Maintainer: Filip Pytloun <filip@pytloun.cz>
+Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
+Uploaders: Filip Pytloun <filip@pytloun.cz>
 Section: python
 Priority: optional
 Build-Depends: debhelper (>= 9),
@@ -10,7 +11,7 @@ Build-Depends: debhelper (>= 9),
                python3-setuptools
 Standards-Version: 3.9.8
 X-Python-Version: >= 2.6
-X-Python3-Version: >= 3.0
+X-Python3-Version: >= 3.2
 Homepage: https://github.com/tcpcloud/python-aptly
 
 Package: python-aptly
@@ -29,6 +30,7 @@ Description: Aptly API client and tooling (Python3 version)
  language
 
 Package: aptly-publisher
+Section: utils
 Architecture: all
 Depends: python3-aptly (= ${binary:Version}),
          ${misc:Depends},
