@@ -1,19 +1,26 @@
 #!/usr/bin/make -f
 
+PKD  = $(abspath $(dir $(MAKEFILE_LIST)))
+PKG  = $(word 2,$(shell dpkg-parsechangelog -l$(PKD)/changelog | grep ^Source))
+VER ?= $(shell dpkg-parsechangelog -l$(PKD)/changelog | perl -ne 'print $$1 if m{^Version:\s*([\d\.]+)}')
+
 export PYBUILD_NAME=aptly
 %:
 	dh $@ --with python2,python3 --buildsystem=pybuild
+
+override_dh_auto_build:
+	dh_auto_build
+	# Generate man page
+	(PYTHONPATH=. help2man -n "aptly-publisher - tool for easy creation of Aptly multi component publishes" --version-string=$(VER) "python aptly/publisher/__main__.py" | sed s,__main__.py,aptly-publisher,g > debian/aptly-publisher.1)
 
 override_dh_install:
 	# aptly-publisher is using python3 by default
 	rm -rf debian/python-aptly/usr/bin
 	mkdir -p debian/aptly-publisher/usr
 	mv debian/python3-aptly/usr/bin debian/aptly-publisher/usr/
+	dh_install
 
 ## http://wiki.debian.org/onlyjob/get-orig-source
-PKD  = $(abspath $(dir $(MAKEFILE_LIST)))
-PKG  = $(word 2,$(shell dpkg-parsechangelog -l$(PKD)/changelog | grep ^Source))
-VER ?= $(shell dpkg-parsechangelog -l$(PKD)/changelog | perl -ne 'print $$1 if m{^Version:\s*([\d\.]+)}')
 .PHONY: get-orig-source
 get-orig-source:
 	@echo "# Downloading..."

@@ -5,8 +5,11 @@ Section: python
 Priority: optional
 Build-Depends: debhelper (>= 9),
                dh-python,
+               help2man,
                python-all,
+               python-requests,
                python-setuptools,
+               python-yaml,
                python3-all,
                python3-setuptools
 Standards-Version: 3.9.8
