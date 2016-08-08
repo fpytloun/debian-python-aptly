@@ -6,3 +6,6 @@
 python-aptly_0.7.7.orig.tar.xz
 d51242ea7c53cffce1c8c733fa7e48790464bf56
 95072
+debianTag="debian/%e%v"
+patchedTag="patched/%e%v"
+upstreamTag="upstream/%e%u"

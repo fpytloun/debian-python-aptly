@@ -23,7 +23,7 @@ Vcs-Git: https://anonscm.debian.org/git/python-modules/packages/python-aptly.git
 Package: python-aptly
 Architecture: all
 Depends: ${misc:Depends}, ${python:Depends}
-Recommends: aptly-publisher
+Suggests: aptly-publisher
 Description: Aptly REST API client and useful tooling - Python 2.7
  Module which provides access to Aptly instance from Python programming
  language
@@ -33,6 +33,7 @@ Description: Aptly REST API client and useful tooling - Python 2.7
 Package: python3-aptly
 Architecture: all
 Depends: ${misc:Depends}, ${python3:Depends}
+Suggests: aptly-publisher
 Description: Aptly REST API client and useful tooling - Python 3.x
  Module which provides access to Aptly instance from Python programming
  language
@@ -42,9 +43,7 @@ Description: Aptly REST API client and useful tooling - Python 3.x
 Package: aptly-publisher
 Section: utils
 Architecture: all
-Depends: python3-aptly (= ${binary:Version}),
-         ${misc:Depends},
-         ${python:Depends}
+Depends: python3-aptly (= ${binary:Version}), ${misc:Depends}
 Description: Tool for management of Aptly publishes
  This tool allows one to create aptly multi-component
  publishes from JSON definition of repositories and mirrors
