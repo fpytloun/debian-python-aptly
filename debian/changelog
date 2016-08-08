@@ -1,5 +1,5 @@
 python-aptly (0.7.7-1) unstable; urgency=medium
 
-  * Initial release
+  * Initial release (Closes: #833721)
 
  -- Filip Pytloun <filip@pytloun.cz>  Thu, 04 Aug 2016 13:59:04 +0200
