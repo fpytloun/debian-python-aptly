@@ -27,6 +27,8 @@ Recommends: aptly-publisher
 Description: Aptly API client
  Module which provides access to Aptly instance from Python programming
  language
+ .
+ This package contains the Python 2.x module.
 
 Package: python3-aptly
 Architecture: all
@@ -34,6 +36,8 @@ Depends: ${misc:Depends}, ${python3:Depends}
 Description: Aptly API client and tooling (Python3 version)
  Module which provides access to Aptly instance from Python programming
  language
+ .
+ This package contains the Python 3.x module.
 
 Package: aptly-publisher
 Section: utils
