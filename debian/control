@@ -43,7 +43,9 @@ Description: Aptly REST API client and useful tooling - Python 3.x
 Package: aptly-publisher
 Section: utils
 Architecture: all
-Depends: python3-aptly (= ${binary:Version}), ${misc:Depends}
+Depends: python3-aptly (= ${binary:Version}),
+         ${misc:Depends},
+         ${python3:Depends}
 Description: Tool for management of Aptly publishes
  This tool allows one to create aptly multi-component
  publishes from JSON definition of repositories and mirrors
