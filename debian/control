@@ -7,15 +7,15 @@ Build-Depends: debhelper (>= 9),
                dh-python,
                help2man,
                python-all,
-               python-requests,
                python-setuptools,
-               python-yaml,
                python3-all,
                python3-setuptools
+Build-Depends-Indep: python-requests,
+                     python-yaml,
+                     python3-requests,
+                     python3-yaml
 Standards-Version: 3.9.8
 Testsuite: autopkgtest-pkg-python
-X-Python-Version: >= 2.6
-X-Python3-Version: >= 3.2
 Homepage: https://github.com/tcpcloud/python-aptly
 Vcs-Browser: https://anonscm.debian.org/cgit/python-modules/packages/python-aptly.git/
 Vcs-Git: https://anonscm.debian.org/git/python-modules/packages/python-aptly.git
@@ -24,7 +24,7 @@ Package: python-aptly
 Architecture: all
 Depends: ${misc:Depends}, ${python:Depends}
 Recommends: aptly-publisher
-Description: Aptly API client
+Description: Aptly REST API client and useful tooling - Python 2.7
  Module which provides access to Aptly instance from Python programming
  language
  .
@@ -33,7 +33,7 @@ Description: Aptly API client
 Package: python3-aptly
 Architecture: all
 Depends: ${misc:Depends}, ${python3:Depends}
-Description: Aptly API client and tooling (Python3 version)
+Description: Aptly REST API client and useful tooling - Python 3.x
  Module which provides access to Aptly instance from Python programming
  language
  .
@@ -46,6 +46,16 @@ Depends: python3-aptly (= ${binary:Version}),
          ${misc:Depends},
          ${python:Depends}
 Description: Tool for management of Aptly publishes
- .
  This tool allows one to create aptly multi-component
  publishes from JSON definition of repositories and mirrors
+ .
+ Features
+ --------
+  - create or update publish from latest snapshots
+    - it takes configuration in yaml format which defines what to publish and
+      how
+    - expected snapshot format is ``<name>-<timestamp>``
+  - promote publish
+    - use source publish snapshots to create or update another publish (eg.
+      testing -> stable)
+  - cleanup unused snapshots

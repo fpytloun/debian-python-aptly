@@ -1,8 +1,8 @@
 #!/usr/bin/make -f
 
 PKD  = $(abspath $(dir $(MAKEFILE_LIST)))
-PKG  = $(word 2,$(shell dpkg-parsechangelog -l$(PKD)/changelog | grep ^Source))
-VER ?= $(shell dpkg-parsechangelog -l$(PKD)/changelog | perl -ne 'print $$1 if m{^Version:\s*([\d\.]+)}')
+PKG  = $(shell dpkg-parsechangelog -SSource)
+VER ?= $(shell dpkg-parsechangelog -SVersion)
 
 export PYBUILD_NAME=aptly
 %:
