@@ -9,7 +9,7 @@ export PYBUILD_NAME=aptly
 override_dh_auto_build:
 	dh_auto_build
 	# Generate man page
-	(PYTHONPATH=. help2man -n "aptly-publisher - tool for easy creation of Aptly multi component publishes" --version-string=$(VER) "python aptly/publisher/__main__.py" | sed s,__main__.py,aptly-publisher,g > debian/aptly-publisher.1)
+	(PYTHONPATH=. help2man -n "aptly-publisher - tool for easy creation of Aptly multi component publishes" --version-string=$(VER) "python aptly/publisher/__main__.py" | sed -e s,__main__.py,aptly-publisher,g -e s,__MAIN__.PY,APTLY-PUBLISHER,g > debian/aptly-publisher.1)
 
 override_dh_install:
 	dh_install
