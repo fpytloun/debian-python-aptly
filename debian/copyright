@@ -2,11 +2,15 @@ Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: python-aptly
 Upstream-Contact: Filip Pytloun <filip.pytloun@tcpcloud.eu>
 Source: https://github.com/tcpcloud/python-aptly
-Files-Excluded:
-  debian
 
 Files: *
 Copyright: 2015-2016 tcp cloud
+License: GPL-2+
+
+Files: debian/*
+Copyright: (c) 2016, Filip Pytloun <filip@pytloun.cz>
+License: GPL-2+
+
 License: GPL-2+
   Copyright (C) 2015-2016 tcp cloud
   .
